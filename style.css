@@ -1,0 +1,295 @@
+body {
+    background: linear-gradient(to bottom, #f8f8f8, #e0e0e0); /* Very light gray to light gray */
+}
+
+.section-padding {
+    padding: 80px; /* Adds 80px padding to the top and bottom of elements with this class. Used for spacing sections. */
+}
+
+
+h1 {
+    font-family: 'Montserrat', sans-serif; /* Replace with your chosen font */
+    font-size: 2.5em; /* Adjust size as needed */
+    font-weight: 600;
+    color: #0e0d0d; /* black */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px; /* Add margin below the title */
+    padding-bottom: 10px; /* Add padding below the title */
+    border-bottom: 2px solid #000000; /* Subtle bottom border */
+    text-align: center; /* keep it centered */
+  }
+
+
+.carousel-item {
+    height: 80vh; /* Sets the height of carousel items to 80% of the viewport height. */
+    min-height: 300px; /* Sets a minimum height of 300px for carousel items. */
+}
+
+.carousel-caption {
+    bottom: 180px; /* Positions the carousel caption 180px from the bottom. */
+    z-index: 2; /* Sets the stacking order of the caption to be above other elements. */
+}
+
+.carousel-caption h5 {
+    font-size: 40px; /* Sets the font size of the h5 heading within the caption. */
+    text-transform: uppercase; /* Converts the text of the h5 to uppercase. */
+    letter-spacing: 2px; /* Adds 2px spacing between letters in the h5. */
+    margin-top: 20px; /* Adds 20px top margin to the h5. */
+
+}
+
+
+.carousel-caption p {
+    width: 70%; /* Sets the width of the paragraph within the caption to 70%. */
+    margin: auto; /* Centers the paragraph horizontally. */
+    font-size: 16px; /* Sets the font size of the paragraph. */
+    line-height: 1.8; /* Sets the line height of the paragraph. */
+}
+
+
+.carousel-inner::before {
+    content: ''; /* Creates an empty content string for the pseudo-element. */
+    position: absolute; /* Positions the pseudo-element absolutely. */
+    width: 100%; /* Sets the width of the pseudo-element to 100%. */
+    height: 100%; /* Sets the height of the pseudo-element to 100%. */
+    top: 0; /* Positions the pseudo-element at the top. */
+    left: 0; /* Positions the pseudo-element at the left. */
+    background: rgba(0, 0, 0, 0.6); /* Sets a semi-transparent black background on the pseudo-element. */
+    z-index: 1; /* Sets the stacking order of the pseudo-element. */
+}
+
+.navbar {
+    background: linear-gradient(to bottom, #f8f8f8, #e0e0e0); /* Sets a semi-transparent white background for the navbar. */
+    backdrop-filter: blur(10px); /* Applies a blur effect to the background. */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle box shadow to the navbar. */
+    transition: all 0.3s ease-in-out; /* Adds smooth transitions for property changes. */
+    padding: 10px 0; /* Adds 10px padding to the top and bottom of the navbar. */
+}
+
+.navbar.scrolled {
+    background: linear-gradient(to bottom, #f8f8f8, #e0e0e0); /* Sets a solid white background for the navbar when scrolled. */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Adds a slightly stronger box shadow when scrolled. */
+}
+
+.navbar-brand {
+    font-size: 2.5rem; /* Sets the font size of the navbar brand. */
+    font-weight: bold; /* Makes the navbar brand text bold. */
+    text-transform: uppercase; /* Converts the navbar brand text to uppercase. */
+    letter-spacing: 1px; /* Adds 1px spacing between letters in the navbar brand. */
+    display: flex; /* Uses flexbox for layout. */
+    align-items: center; /* Centers items vertically in the flex container. */
+    gap: 10px; /* Adds 10px gap between items in the flex container. */
+}
+
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+    transform: scale(1.05); /* Slightly scales up the element on hover. */
+    color: #FFD700; /* Changes the color to gold on hover. */
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem; /* Sets the font size of the nav links. */
+    color: #0e0d0d; /* Sets the color of the nav links to dark gray. */
+    font-weight: 500; /* Makes the nav link text slightly bold. */
+    transition: all 0.3s ease-in-out; /* Adds smooth transitions for property changes. */
+    padding: 10px 15px; /* Adds padding to the nav links. */
+    position: relative; /* Positions the nav links relatively. */
+}
+
+.navbar-nav .nav-link::after {
+    content: ''; /* Creates an empty content string for the pseudo-element. */
+    width: 0%; /* Sets the initial width of the pseudo-element to 0. */
+    height: 3px; /* Sets the height of the pseudo-element. */
+    background: #FFD700; /* Sets the background color of the pseudo-element to gold. */
+    position: absolute; /* Positions the pseudo-element absolutely. */
+    bottom: 0; /* Positions the pseudo-element at the bottom. */
+    left: 50%; /* Positions the pseudo-element at the horizontal center. */
+    transform: translateX(-50%); /* Centers the pseudo-element using transform. */
+    transition: width 0.3s ease-in-out; /* Adds a smooth transition for the width property. */
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 50%; /* Sets the width of the pseudo-element to 50% on hover, creating an underline effect. */
+}
+
+.navbar-nav .nav-link.active {
+    color: #FFD700; /* Sets the color of the active nav link to gold. */
+    font-weight: 600; /* Makes the active nav link text bolder. */
+}
+
+.navbar-toggler {
+    border: none; /* Removes the border from the navbar toggler button. */
+}
+
+.navbar-toggler:focus {
+    box-shadow: none; /* Removes the focus outline from the navbar toggler button. */
+}
+
+.gallery-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #333;
+    border: 2px solid #FFD700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.gallery-button:hover {
+    background-color: #333;
+    border-color: #333;
+    color: #FFD700;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.justify-text {
+    text-align: justify;
+}
+
+.about-img img {
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
+    margin-bottom: 20px; /* Add margin below images */
+  }
+
+.col-lg-6 p {
+    line-height: 1.6;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.582); /* Semi-transparent white */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    text-align: left;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+
+@media (max-width: 768px) {  /* Adjust the breakpoint as needed */
+    .about-img {
+      margin-bottom: 30px; /* Adjust the margin as needed */
+    }
+}
+
+@media (max-width: 768px) {  /* Adjust the breakpoint as needed */
+    .about-text {
+      margin-top: 30px; /* Adjust the margin as needed */
+    }
+}
+
+
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .carousel-caption {
+        bottom: 100px;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .navbar-nav {
+        text-align: center; /* Centers the nav links on smaller screens. */
+    }
+    .navbar-nav .nav-link {
+        font-size: 1rem; /* Reduces the font size of the nav links on smaller screens. */
+        display: block; /* Makes nav links display as block elements. */
+        padding: 12px; /* Adds padding to the nav links. */
+    }
+    .navbar {
+        padding: 8px 10px; /* Adjusts padding for the navbar. */
+    }
+    .navbar-brand {
+        font-size: 1.6rem; /* Reduces the font size of the navbar brand on smaller screens. */
+    }
+    .carousel-item {
+        height: 60vh; /* Reduces the height of carousel items on smaller screens. */
+    }
+    .carousel-caption h5 {
+        font-size: 30px; /* Reduces the font size of the h5 heading within the caption. */
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 6px 8px; /* Further adjusts padding for the navbar. */
+    }
+    .navbar-brand {
+        font-size: 1.4rem; /* Further reduces the font size of the navbar brand. */
+    }
+    .carousel-item {
+        height: 50vh; /* Further reduces the height of carousel items. */
+    }
+    .carousel-caption {
+        bottom: 125px; /* Adjusts the bottom position of the carousel caption. */
+    }
+    .carousel-caption h5 {
+        font-size: 25px; /* Further reduces the font size of the h5. */
+    }
+
+    .carousel-caption p {
+        width: 100%; /* Sets the width of the paragraph to 100%. */
+        line-height: 1.6; /* Adjusts the line height of the paragraph. */
+        font-size: 14px; /* Further reduces the font size of the paragraph. */
+
+    }
+}
+
+
+    
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 5px 6px; /* Further adjusts padding for the navbar. */
+    }
+    .navbar-brand {
+        font-size: 1.2rem; /* Further reduces the font size of the navbar brand. */
+    }
+    .carousel-item {
+        height: 40vh; /* Further reduces the height of carousel items. */
+    }
+    .carousel-caption {
+        bottom: 80px; /* Further adjusts the bottom position of the carousel caption. */
+    }
+    .carousel-caption h5 {
+        font-size: 20px; /* Further reduces the font size of the h5. */
+    }
+    .carousel-caption p {
+        font-size: 12px; /* Further reduces the font size of the paragraph. */
+        width: 80%; /* Adjusts the width of the paragraph. */
+    }
+}
+
+.logo-img {
+    height: 60px; /* Sets the height of the logo image. */
+    width: auto; /* Allows the width to adjust automatically. */
+    max-width: 100%; /* Ensures the logo image doesn't exceed its container's width. */
+}
+
+@media (max-width: 992px) {
+    .logo-img {
+        height: 55px; /* Reduces the height of the logo image on smaller screens. */
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-img {
+        height: 45px; /* Further reduces the height of the logo image. */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        height: 35px; /* Further reduces the height of the logo image. */
+    }
+}
+
+
