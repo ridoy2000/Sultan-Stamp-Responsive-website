@@ -123,3 +123,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Update copyright year automatically
+document.getElementById('current-year').textContent = new Date().getFullYear();
+
+// Newsletter form handling
+const newsletterForm = document.querySelector('.newsletter-form');
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const emailInput = this.querySelector('input[type="email"]');
+    const email = emailInput.value.trim();
+    
+    if (email) {
+      // Here you would typically send to your email service
+      console.log('Subscribed email:', email);
+      
+      // Show visual feedback
+      const button = this.querySelector('button');
+      button.innerHTML = '<i class="fas fa-check"></i>';
+      button.style.backgroundColor = '#4CAF50';
+      
+      // Reset after 2 seconds
+      setTimeout(() => {
+        button.innerHTML = '<i class="fas fa-paper-plane"></i>';
+        button.style.backgroundColor = '';
+        emailInput.value = '';
+      }, 2000);
+    }
+  });
+}

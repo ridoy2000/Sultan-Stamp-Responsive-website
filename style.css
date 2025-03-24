@@ -43,6 +43,12 @@ h1 {
     }
 }
 
+.carousel-item img { /* Add this rule */
+    object-fit: cover; /* or contain, depending on your preference */
+    width: 100%;
+    height: 100%;
+}
+
 .carousel-caption {
     bottom: 120px;
     z-index: 2;
@@ -158,6 +164,7 @@ h1 {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 15px;
+    text-decoration: none;
 }
 
 .gallery-button:hover {
@@ -452,5 +459,157 @@ h1 {
     }
     .contact-form {
         padding: 20px;
+    }
+}
+
+
+/* Footer Styles */
+.stamp-footer {
+    background: linear-gradient(to bottom, #d0d0d0, #b0b0b0);
+    padding: 0.5rem 0; /* Reduced padding */
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 0.8rem; /* Reduced margin */
+}
+
+.footer-brand,
+.footer-social,
+.footer-newsletter {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 0.5rem; /* Reduced padding */
+}
+
+/* New Divider Styles */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #181609, transparent);
+    margin: 1rem 0; /* Reduced margin */
+    width: 80%;
+}
+
+.stamp-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem; /* Reduced font size */
+    font-weight: 500;
+    color: #000;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.tagline {
+    font-style: italic;
+    margin-top: 0.2rem; /* Reduced margin */
+    color: #070707;
+    font-weight: 500;
+    font-size: 0.8rem; /* Reduced font size */
+}
+
+.footer-social h3,
+.footer-newsletter h3 {
+    font-size: 0.9rem; /* Reduced font size */
+    margin-bottom: 0.4rem; /* Reduced margin */
+    color: #000;
+    font-weight: 600;
+}
+
+.social-links {
+    display: flex;
+    gap: 0.6rem; /* Reduced gap */
+    justify-content: center;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Reduced size */
+    height: 30px; /* Reduced size */
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    color: #000;
+    border: 1px solid #FFD700;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #FFD700;
+    transform: translateY(-3px);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.2rem; /* Reduced gap */
+    justify-content: center;
+    max-width: 250px; /* Reduced max-width */
+    width: 100%;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.5rem; /* Reduced padding */
+    border: 1px solid #FFD700;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.7);
+    align-self: center;
+    font-size: 0.8rem; /* Reduced font size */
+}
+
+.stamp-button {
+    background: #000;
+    color: #FFD700;
+    border: none;
+    border-radius: 4px;
+    padding: 0 0.6rem; /* Reduced padding */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: center;
+    font-size: 0.8rem; /* Reduced font size */
+}
+
+.stamp-button:hover {
+    background: #FFD700;
+    color: #000;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 0.8rem; /* Reduced padding */
+    color: #332f2f;
+    font-size: 0.7rem; /* Reduced font size */
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-brand,
+    .footer-social,
+    .footer-newsletter {
+        padding: 0.8rem 0; /* Reduced padding for mobile */
+    }
+
+    .social-links,
+    .newsletter-form {
+        justify-content: center;
+    }
+
+    .section-divider {
+        margin: 0.8rem auto; /* Reduced margin */
+        width: 60%;
     }
 }
