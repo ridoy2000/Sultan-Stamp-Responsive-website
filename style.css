@@ -3,127 +3,167 @@ body {
 }
 
 .section-padding {
-    padding: 80px; /* Adds 80px padding to the top and bottom of elements with this class. Used for spacing sections. */
+    padding: 60px 20px; /* Adjusted padding for smaller screens */
 }
 
+@media (min-width: 768px) {
+    .section-padding {
+        padding: 80px; /* Original padding for larger screens */
+    }
+}
 
 h1 {
-    font-family: 'Montserrat', sans-serif; /* Replace with your chosen font */
-    font-size: 2.5em; /* Adjust size as needed */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em; /* Adjusted size for smaller screens */
     font-weight: 600;
-    color: #0e0d0d; /* black */
+    color: #0e0d0d;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 20px; /* Add margin below the title */
-    padding-bottom: 10px; /* Add padding below the title */
-    border-bottom: 2px solid #000000; /* Subtle bottom border */
-    text-align: center; /* keep it centered */
-  }
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #000000;
+    text-align: center;
+}
 
+@media (min-width: 768px) {
+    h1 {
+        font-size: 2.5em; /* Original size for larger screens */
+    }
+}
 
 .carousel-item {
-    height: 80vh; /* Sets the height of carousel items to 80% of the viewport height. */
-    min-height: 300px; /* Sets a minimum height of 300px for carousel items. */
+    height: 60vh; /* Adjusted height for smaller screens */
+    min-height: 200px; /* Adjusted minimum height */
+}
+
+@media (min-width: 768px) {
+    .carousel-item {
+        height: 80vh; /* Original height for larger screens */
+        min-height: 300px;
+    }
 }
 
 .carousel-caption {
-    bottom: 180px; /* Positions the carousel caption 180px from the bottom. */
-    z-index: 2; /* Sets the stacking order of the caption to be above other elements. */
+    bottom: 120px; /* Adjusted position for smaller screens */
+    z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .carousel-caption {
+        bottom: 180px; /* Original position for larger screens */
+    }
 }
 
 .carousel-caption h5 {
-    font-size: 40px; /* Sets the font size of the h5 heading within the caption. */
-    text-transform: uppercase; /* Converts the text of the h5 to uppercase. */
-    letter-spacing: 2px; /* Adds 2px spacing between letters in the h5. */
-    margin-top: 20px; /* Adds 20px top margin to the h5. */
-
+    font-size: 24px; /* Adjusted size for smaller screens */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 20px;
 }
 
+@media (min-width: 768px) {
+    .carousel-caption h5 {
+        font-size: 40px; /* Original size for larger screens */
+    }
+}
 
 .carousel-caption p {
-    width: 70%; /* Sets the width of the paragraph within the caption to 70%. */
-    margin: auto; /* Centers the paragraph horizontally. */
-    font-size: 16px; /* Sets the font size of the paragraph. */
-    line-height: 1.8; /* Sets the line height of the paragraph. */
+    width: 90%; /* Adjusted width for smaller screens */
+    margin: auto;
+    font-size: 14px; /* Adjusted size for smaller screens */
+    line-height: 1.6;
 }
 
+@media (min-width: 768px) {
+    .carousel-caption p {
+        width: 70%; /* Original width for larger screens */
+        font-size: 16px;
+    }
+}
 
 .carousel-inner::before {
-    content: ''; /* Creates an empty content string for the pseudo-element. */
-    position: absolute; /* Positions the pseudo-element absolutely. */
-    width: 100%; /* Sets the width of the pseudo-element to 100%. */
-    height: 100%; /* Sets the height of the pseudo-element to 100%. */
-    top: 0; /* Positions the pseudo-element at the top. */
-    left: 0; /* Positions the pseudo-element at the left. */
-    background: rgba(0, 0, 0, 0.6); /* Sets a semi-transparent black background on the pseudo-element. */
-    z-index: 1; /* Sets the stacking order of the pseudo-element. */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
 }
 
 .navbar {
-    background: linear-gradient(to bottom, #f8f8f8, #e0e0e0); /* Sets a semi-transparent white background for the navbar. */
-    backdrop-filter: blur(10px); /* Applies a blur effect to the background. */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle box shadow to the navbar. */
-    transition: all 0.3s ease-in-out; /* Adds smooth transitions for property changes. */
-    padding: 10px 0; /* Adds 10px padding to the top and bottom of the navbar. */
+    background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    padding: 10px 20px; /* Adjusted padding for smaller screens */
 }
 
 .navbar.scrolled {
-    background: linear-gradient(to bottom, #f8f8f8, #e0e0e0); /* Sets a solid white background for the navbar when scrolled. */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Adds a slightly stronger box shadow when scrolled. */
+    background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .navbar-brand {
-    font-size: 2.5rem; /* Sets the font size of the navbar brand. */
-    font-weight: bold; /* Makes the navbar brand text bold. */
-    text-transform: uppercase; /* Converts the navbar brand text to uppercase. */
-    letter-spacing: 1px; /* Adds 1px spacing between letters in the navbar brand. */
-    display: flex; /* Uses flexbox for layout. */
-    align-items: center; /* Centers items vertically in the flex container. */
-    gap: 10px; /* Adds 10px gap between items in the flex container. */
+    font-size: 1.8rem; /* Adjusted size for smaller screens */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.navbar-brand:hover,
-.navbar-nav .nav-link:hover {
-    transform: scale(1.05); /* Slightly scales up the element on hover. */
-    color: #FFD700; /* Changes the color to gold on hover. */
+@media (min-width: 768px) {
+    .navbar-brand {
+        font-size: 2.5rem; /* Original size for larger screens */
+    }
 }
 
 .navbar-nav .nav-link {
-    font-size: 1.1rem; /* Sets the font size of the nav links. */
-    color: #0e0d0d; /* Sets the color of the nav links to dark gray. */
-    font-weight: 500; /* Makes the nav link text slightly bold. */
-    transition: all 0.3s ease-in-out; /* Adds smooth transitions for property changes. */
-    padding: 10px 15px; /* Adds padding to the nav links. */
-    position: relative; /* Positions the nav links relatively. */
+    font-size: 1rem; /* Adjusted size for smaller screens */
+    color: #0e0d0d;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    padding: 8px 12px; /* Adjusted padding for smaller screens */
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .navbar-nav .nav-link {
+        font-size: 1.1rem; /* Original size for larger screens */
+        padding: 10px 15px;
+    }
 }
 
 .navbar-nav .nav-link::after {
-    content: ''; /* Creates an empty content string for the pseudo-element. */
-    width: 0%; /* Sets the initial width of the pseudo-element to 0. */
-    height: 3px; /* Sets the height of the pseudo-element. */
-    background: #FFD700; /* Sets the background color of the pseudo-element to gold. */
-    position: absolute; /* Positions the pseudo-element absolutely. */
-    bottom: 0; /* Positions the pseudo-element at the bottom. */
-    left: 50%; /* Positions the pseudo-element at the horizontal center. */
-    transform: translateX(-50%); /* Centers the pseudo-element using transform. */
-    transition: width 0.3s ease-in-out; /* Adds a smooth transition for the width property. */
+    content: '';
+    width: 0%;
+    height: 3px;
+    background: #000000;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
 }
 
 .navbar-nav .nav-link:hover::after {
-    width: 50%; /* Sets the width of the pseudo-element to 50% on hover, creating an underline effect. */
+    width: 50%;
 }
 
 .navbar-nav .nav-link.active {
-    color: #FFD700; /* Sets the color of the active nav link to gold. */
-    font-weight: 600; /* Makes the active nav link text bolder. */
+    color: #FFD700;
+    font-weight: 600;
 }
 
 .navbar-toggler {
-    border: none; /* Removes the border from the navbar toggler button. */
+    border: none;
 }
 
 .navbar-toggler:focus {
-    box-shadow: none; /* Removes the focus outline from the navbar toggler button. */
+    box-shadow: none;
 }
 
 .gallery-button {
@@ -155,15 +195,15 @@ h1 {
 }
 
 .about-img img {
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* 3D shadow effect */
-    margin-bottom: 20px; /* Add margin below images */
-  }
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
 
 .col-lg-6 p {
     line-height: 1.6;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.582); /* Semi-transparent white */
+    background-color: rgba(255, 255, 255, 0.582);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
@@ -171,125 +211,236 @@ h1 {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
 }
 
-
-@media (max-width: 768px) {  /* Adjust the breakpoint as needed */
+@media (max-width: 768px) {
     .about-img {
-      margin-bottom: 30px; /* Adjust the margin as needed */
+        margin-bottom: 30px;
     }
-}
-
-@media (max-width: 768px) {  /* Adjust the breakpoint as needed */
     .about-text {
-      margin-top: 30px; /* Adjust the margin as needed */
+        margin-top: 30px;
     }
 }
 
+.portfolio {
+    text-align: center;
+    padding: 60px 20px; /* Adjusted padding for smaller screens */
+}
 
-
-
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .carousel-caption {
-        bottom: 100px;
+@media (min-width: 768px) {
+    .portfolio {
+        padding: 80px 20px; /* Original padding for larger screens */
     }
 }
 
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-    .navbar-nav {
-        text-align: center; /* Centers the nav links on smaller screens. */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Adjusted for smaller screens */
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+@media (min-width: 480px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Adjusted for tablets */
     }
-    .navbar-nav .nav-link {
-        font-size: 1rem; /* Reduces the font size of the nav links on smaller screens. */
-        display: block; /* Makes nav links display as block elements. */
-        padding: 12px; /* Adds padding to the nav links. */
+}
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr); /* Original for larger screens */
     }
-    .navbar {
-        padding: 8px 10px; /* Adjusts padding for the navbar. */
-    }
-    .navbar-brand {
-        font-size: 1.6rem; /* Reduces the font size of the navbar brand on smaller screens. */
-    }
-    .carousel-item {
-        height: 60vh; /* Reduces the height of carousel items on smaller screens. */
-    }
-    .carousel-caption h5 {
-        font-size: 30px; /* Reduces the font size of the h5 heading within the caption. */
+}
+
+.grid-item {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.grid-item img:hover {
+    transform: scale(1.05);
+}
+
+.grid-item-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.grid-item-wide {
+    grid-column: span 2;
 }
 
 @media (max-width: 768px) {
-    .navbar {
-        padding: 6px 8px; /* Further adjusts padding for the navbar. */
-    }
-    .navbar-brand {
-        font-size: 1.4rem; /* Further reduces the font size of the navbar brand. */
-    }
-    .carousel-item {
-        height: 50vh; /* Further reduces the height of carousel items. */
-    }
-    .carousel-caption {
-        bottom: 125px; /* Adjusts the bottom position of the carousel caption. */
-    }
-    .carousel-caption h5 {
-        font-size: 25px; /* Further reduces the font size of the h5. */
-    }
-
-    .carousel-caption p {
-        width: 100%; /* Sets the width of the paragraph to 100%. */
-        line-height: 1.6; /* Adjusts the line height of the paragraph. */
-        font-size: 14px; /* Further reduces the font size of the paragraph. */
-
-    }
-}
-
-
-    
-}
-
-@media (max-width: 480px) {
-    .navbar {
-        padding: 5px 6px; /* Further adjusts padding for the navbar. */
-    }
-    .navbar-brand {
-        font-size: 1.2rem; /* Further reduces the font size of the navbar brand. */
-    }
-    .carousel-item {
-        height: 40vh; /* Further reduces the height of carousel items. */
-    }
-    .carousel-caption {
-        bottom: 80px; /* Further adjusts the bottom position of the carousel caption. */
-    }
-    .carousel-caption h5 {
-        font-size: 20px; /* Further reduces the font size of the h5. */
-    }
-    .carousel-caption p {
-        font-size: 12px; /* Further reduces the font size of the paragraph. */
-        width: 80%; /* Adjusts the width of the paragraph. */
+    .grid-item-large, .grid-item-wide {
+        grid-column: span 1; /* Adjusted for smaller screens */
     }
 }
 
 .logo-img {
-    height: 60px; /* Sets the height of the logo image. */
-    width: auto; /* Allows the width to adjust automatically. */
-    max-width: 100%; /* Ensures the logo image doesn't exceed its container's width. */
+    height: 50px; /* Adjusted size for smaller screens */
+    width: auto;
+    max-width: 100%;
 }
 
-@media (max-width: 992px) {
+@media (min-width: 768px) {
     .logo-img {
-        height: 55px; /* Reduces the height of the logo image on smaller screens. */
+        height: 60px; /* Original size for larger screens */
     }
 }
 
+
+/* Contact Section */
+/* Match the body gradient */
+.contact { 
+    padding: 60px 0;
+}
+
+.contact h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    font-weight: 600;
+    color: #0e0d0d;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #000000;
+    text-align: center;
+}
+
+.contact-info h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    font-weight: 600;
+    color: #0e0d0d;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Contact Details Styling */
+.contact-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-details li {
+    margin-bottom: 20px; /* Increased spacing between items */
+    font-size: 1.1em;
+    color: #333;
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all 0.3s ease;
+}
+
+.contact-details li:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.contact-details li i {
+    margin-right: 15px; /* Increased spacing between icon and text */
+    color: #FFD700; /* Gold color for icons */
+    font-size: 1.5em; /* Larger icons */
+    width: 30px; /* Fixed width for alignment */
+    text-align: center;
+}
+
+.contact-details li span {
+    font-weight: 500; /* Slightly bolder text */
+    color: #0e0d0d; /* Darker text for better contrast */
+}
+
+/* Contact Form Styling */
+.contact-form {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Add this to your CSS file */
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form .form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: border-color 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    border-color: #FFD700;
+    outline: none;
+    background-color: #fff;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 1em;
+    font-weight: 600;
+    color: #fff;
+    background-color: #333;
+    border: 2px solid #FFD700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #333;
+    border-color: #333;
+    color: #FFD700;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .logo-img {
-        height: 45px; /* Further reduces the height of the logo image. */
+    .contact-info {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .contact-details li {
+        font-size: 1em; /* Smaller font size for mobile */
+        padding: 12px;
+    }
+
+    .contact-details li i {
+        font-size: 1.3em; /* Smaller icons for mobile */
+        margin-right: 12px;
+    }
+
+    .contact-form {
+        padding: 20px;
     }
 }
-
-@media (max-width: 480px) {
-    .logo-img {
-        height: 35px; /* Further reduces the height of the logo image. */
-    }
-}
-
-

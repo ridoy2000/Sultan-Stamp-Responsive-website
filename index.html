@@ -1,17 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sultan Stamp Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-  <body>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+<body>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
@@ -19,123 +17,216 @@
             <a class="navbar-brand" href="#">
                 <img src="images/logo1.png" alt="Sultan Stamp Logo" class="logo-img">
             </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="#home">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#about">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="services">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#portfolio">Portfolio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#team">team</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact">contact</a>
-              </li>
-            </ul>
-          </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </nav>
+    </nav>
 
-    <!--Carousel -->
+    <!-- Carousel -->
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="images/tes_pic2.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption  ">
-              <h5>Your Vision, Our Stickers</h5>
-              <a href="#" class="gallery-button">View Our Gallery</a>
+            <div class="carousel-item active">
+                <img src="images/tes_pic2.png" class="d-block w-100" alt="Sticker Design 1">
+                <div class="carousel-caption">
+                    <h5>Your Vision, Our Stickers</h5>
+                    <a href="#portfolio" class="gallery-button">View Our Gallery</a>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img src="images/test_1.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption">
-              <h5>Great Deals, Low Cost</h5>
-              <a href="#" class="gallery-button">View Our Gallery</a>
+            <div class="carousel-item">
+                <img src="images/test_1.jpg" class="d-block w-100" alt="Sticker Design 2">
+                <div class="carousel-caption">
+                    <h5>Great Deals, Low Cost</h5>
+                    <a href="#" class="gallery-button">View Our Gallery</a>
+                </div>
             </div>
-          </div>
-          <div class="carousel-item">
-            <img src="images/Mustang.jpeg" class="d-block w-100" alt="...">
-            <div class="carousel-caption">
-              <h5>Dublin Made, Local Craft</h5>
-              <a href="#" class="gallery-button">View Our Gallery</a>
+            <div class="carousel-item">
+                <img src="images/Mustang.jpeg" class="d-block w-100" alt="Sticker Design 3">
+                <div class="carousel-caption">
+                    <h5>Dublin Made, Local Craft</h5>
+                    <a href="#" class="gallery-button">View Our Gallery</a>
+                </div>
             </div>
-          </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
         </button>
-      </div>
+    </div>
 
     <!-- About Section -->
     <section id="about" class="about section-padding">
-      <div class="container">
-          <div class="row">
-              <div class="col-12 text-center mb-4">
-                  <h1>About Us</h1>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-lg-4 col-md-12 col-12">
-                  <div class="about-img">
-                      <img src="images/process_1.jpg" alt="Process 1" class="img-fluid">
-                  </div>
-              </div>
-              <div class="col-lg-6 col-md-12 col-12 ps-lg-5">
-                  <h2>More Than Just Stickers, It's Personal</h2>
-                  <p class="justify-text">
-                      We're not just a website; we're a small, passionate team right here in Dublin. 
-                      We started this because we genuinely love seeing ideas come to life as vibrant, fun stickers.
-                       Every sticker we make comes from our own hands, and we treat each one like it's for a friend. 
-                       We believe in the power of a good sticker to bring a little joy, and pleasure to everyone.
-                  </p>
-              </div>
-          </div>
-          <div class="row mt-4">  <div class="col-lg-4 col-md-12 col-12">
-                  <div class="about-img">
-                      <img src="images/process_2.jpg" alt="Process 2" class="img-fluid">
-                  </div>
-              </div>
-              <div class="col-lg-6 col-md-12 col-12 ps-lg-5">
-                  <p class="justify-text">
-                      [Paragraph 2: Description of the second process image]
-                  </p>
-              </div>
-          </div>
-          <div class="row mt-4">  <div class="col-lg-4 col-md-12 col-12">
-                  <div class="about-img">
-                      <img src="images/process_3.jpg" alt="Process 3" class="img-fluid">
-                  </div>
-              </div>
-              <div class="col-lg- col-md-12 col-12 ps-lg-5">
-                  <p class="justify-text">
-                      [Paragraph 3: Description of the third process image]
-                  </p>
-              </div>
-          </div>
-      </div>
-  </section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <h1>About Us</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-12">
+                    <div class="about-img">
+                        <img src="images/process_1.jpg" alt="Sticker Production Process 1" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-12 ps-lg-5">
+                    <h2>We Are More Than Just Stickers</h2>
+                    <p class="justify-text">
+                        We're not just a website; we're a small, passionate team right here in Dublin. 
+                        We started this because we genuinely love seeing ideas come to life as vibrant, fun stickers.
+                        Every sticker we make comes from our own hands, and we treat each one like it's for a friend. 
+                        We believe in the power of a good sticker to bring a little joy, and pleasure to everyone.
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-4 col-md-12 col-12">
+                    <div class="about-img">
+                        <img src="images/process_2.jpg" alt="Sticker Production Process 2" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-12 ps-lg-5">
+                    <h2>Your Ideas And Our Craftsmanship</h2>
+                    <p class="justify-text">
+                        Whether you have a fully designed logo or just a rough idea, we’re here to bring your vision to life.
+                        We work closely with our customers to turn their ideas into high-quality stickers, ensuring each design is crafted with precision and attention to detail.
+                        No matter the size, shape, or style, we’ll make sure it’s vibrant, durable, and ready to stand out wherever you place it.
+                    </p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-4 col-md-12 col-12">
+                    <div class="about-img">
+                        <img src="images/process_3.jpg" alt="Sticker Production Process 3" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-12 ps-lg-5">
+                    <h2>Quality You Can See and Feel</h2>
+                    <p class="justify-text">
+                        We take pride in every sticker we produce, using only high-quality materials that are durable, weatherproof, and made to last.
+                        Whether it's a custom design, a collector’s piece, or something fun for your laptop, each sticker is carefully crafted to be bold,
+                        bright, and full of personality. Our goal is simple: to create stickers that make you smile every time you see them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h1>Gallery</h1>
+            <div class="grid-container">
+                <div class="grid-item grid-item-large">
+                    <img src="images/storefront.jpeg" alt="Storefront Sticker Design">
+                </div>
+                <div class="grid-item">
+                    <img src="images/Punch.jpeg" alt="Punch Sticker Design">
+                </div>
+                <div class="grid-item">
+                    <img src="images/aqsascents 2.jpeg" alt="Aqsa Scents Sticker Design">
+                </div>
+                <div class="grid-item grid-item-wide">
+                    <img src="images/salama lama.jpeg" alt="Salama Lama Sticker Design">
+                </div>
+                <div class="grid-item">
+                    <img src="images/punching.jpeg" alt="Artwork Sticker Design">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <h1>Contact Us</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12">
+                    <div class="contact-info">
+                        <h2>Get in touch</h2>
+                        <p class="justify-text">
+                            For any inquiries or questions, feel free to reach out to us! 📩<br>
+                            You can fill out the form or call us directly 📞.<br>
+                            We're here to help bring your ideas to life! 💡✨
+                        </p>
+                        <ul class="contact-details">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 Dublin Street, Dublin, Ireland</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>+353 123 456 789</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>info@sultanstamp.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-12">
+                    <div class="contact-form">
+                        <form action="https://formsubmit.co/asadzaman180@gmail.com" method="POST">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                        
+                            <!-- Security and customization -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                            <input type="text" name="_honey" style="display:none;">
+                        
+                            <button type="submit" class="gallery-button">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-  </body>
+</body>
 </html>
