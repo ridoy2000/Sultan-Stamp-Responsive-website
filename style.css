@@ -175,7 +175,12 @@ h1 {
 
 .justify-text {
     text-align: justify;
+    text-justify: inter-word; /* Better spacing algorithm */
+    hyphens: auto; /* Allows words to break with hyphens when needed */
+    word-spacing: normal; /* Resets any inherited word-spacing */
 }
+
+
 
 .about-img img {
     border-radius: 10px;
@@ -191,14 +196,20 @@ h1 {
 }
 
 .col-lg-6 p {
-    line-height: 1.6;
+    line-height: 1.8; /* Increases line spacing for better readability */
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.582);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-left: 30px;
+    margin-top: 0; /* Removes extra top margin */
+    margin-bottom: 20px; /* Adds consistent bottom margin */
 }
 
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .col-lg-6 p {
+        margin-left: 0;
+        padding: 15px;
+    }
+}
 
 @media (max-width: 768px) {
     .about-img {
@@ -691,9 +702,62 @@ h1 {
   animation: zoomIn 0.3s;
 }
 
+/* Lightbox Swipe Animation */
+@keyframes lightboxSwipe {
+    0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.95); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Swipe Transition */
+.lightbox.swiping .lightbox-content {
+    transition: none;
+}
+
+/* Improved Touch Targets */
+.prev, .next {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .lightbox-content {
+        max-width: 95vw;
+        max-height: 85vh;
+    }
+    
+    .prev, .next {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+}
+
+/* Lightbox content transition */
+.lightbox-content {
+    transition: transform 0.2s ease-out;
+}
+
 @keyframes zoomIn {
   from { transform: translate(-50%, -50%) scale(0.8); }
   to { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Add this to your lightbox CSS */
+.lightbox-content {
+    pointer-events: none; /* Allow clicks to pass through to lightbox */
+}
+
+/* But make sure the image itself is clickable */
+.lightbox-content img {
+    pointer-events: auto;
 }
 
 .close-btn {
@@ -923,3 +987,4 @@ body {
     margin-bottom: 1.5rem;
     position: relative;
 }
+

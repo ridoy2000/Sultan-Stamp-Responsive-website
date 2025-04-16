@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         successMessage.classList.remove('show');
                         setTimeout(() => {
                             successMessage.style.display = 'none';
-                        }, 300); // Match this with CSS transition duration
+                        }, 300);
                     }, 5000);
                 } else {
                     throw new Error('Form submission failed');
@@ -248,102 +248,121 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Lightbox functionality
+    // Enhanced Lightbox with Swipe Functionality
+    let currentImageIndex = 0;
+    let touchStartX = 0;
+    let isSwiping = false;
+    const swipeThreshold = 50; // pixels
+
     const galleryImages = document.querySelectorAll('.grid-item img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const captionText = document.getElementById('caption');
     const closeBtn = document.querySelector('.close-btn');
 
-    // Add click event to each gallery image
-    galleryImages.forEach(img => {
-        img.addEventListener('click', function() {
+    // Lightbox navigation functions
+    function showImage(index) {
+        if (index >= galleryImages.length) index = 0;
+        if (index < 0) index = galleryImages.length - 1;
+        currentImageIndex = index;
+        
+        lightboxImg.src = galleryImages[currentImageIndex].src;
+        captionText.textContent = galleryImages[currentImageIndex].alt;
+        
+        // Add swipe animation
+        lightboxImg.style.animation = 'none';
+        void lightboxImg.offsetWidth; // Trigger reflow
+        lightboxImg.style.animation = 'lightboxSwipe 0.3s ease-out';
+    }
+
+    function nextImage() {
+        showImage(currentImageIndex + 1);
+    }
+
+    function prevImage() {
+        showImage(currentImageIndex - 1);
+    }
+
+    // Event listeners for gallery images
+    galleryImages.forEach((img, index) => {
+        img.addEventListener('click', () => {
+            currentImageIndex = index;
+            showImage(currentImageIndex);
             lightbox.style.display = 'block';
-            lightboxImg.src = this.src;
-            captionText.textContent = this.alt;
             document.body.style.overflow = 'hidden';
         });
     });
 
-    // Close lightbox when clicking the close button
-    closeBtn.addEventListener('click', function() {
-        lightbox.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
+    // Touch events for swipe
+    lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        isSwiping = true;
+        lightbox.classList.add('swiping');
+    }, { passive: true });
 
-    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('touchmove', (e) => {
+        if (!isSwiping) return;
+        const touchX = e.touches[0].clientX;
+        const diff = touchX - touchStartX;
+        lightboxImg.style.transform = `translate(calc(-50% + ${diff}px), -50%)`;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', (e) => {
+        if (!isSwiping) return;
+        isSwiping = false;
+        lightbox.classList.remove('swiping');
+        
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchEndX - touchStartX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) prevImage();
+            else nextImage();
+        }
+        lightboxImg.style.transform = 'translate(-50%, -50%)';
+    }, { passive: true });
+
+    // Close and keyboard controls
     lightbox.addEventListener('click', function(e) {
+        // Check if click is directly on the lightbox background (not on image or buttons)
         if (e.target === lightbox) {
             lightbox.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     });
 
-    // Close lightbox with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && lightbox.style.display === 'block') {
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.style.display !== 'block') return;
+        
+        if (e.key === 'Escape') {
             lightbox.style.display = 'none';
             document.body.style.overflow = 'auto';
+        } else if (e.key === 'ArrowLeft') {
+            prevImage();
+        } else if (e.key === 'ArrowRight') {
+            nextImage();
         }
     });
 
-    // Add navigation arrows functionality
-    let currentImageIndex = 0;
+    // Navigation arrows
     const prevBtn = document.createElement('div');
-    const nextBtn = document.createElement('div');
-    
     prevBtn.className = 'prev';
-    prevBtn.innerHTML = '&#10094;';
-    nextBtn.className = 'next';
-    nextBtn.innerHTML = '&#10095;';
-    
-    lightbox.appendChild(prevBtn);
-    lightbox.appendChild(nextBtn);
-
-    // Update current image index when opening lightbox
-    galleryImages.forEach((img, index) => {
-        img.addEventListener('click', () => {
-            currentImageIndex = index;
-        });
-    });
-
-    // Previous button functionality
+    prevBtn.innerHTML = '❮';
     prevBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-        updateLightboxImage();
+        prevImage();
     });
 
-    // Next button functionality
+    const nextBtn = document.createElement('div');
+    nextBtn.className = 'next';
+    nextBtn.innerHTML = '❯';
     nextBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-        updateLightboxImage();
+        nextImage();
     });
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (lightbox.style.display === 'block') {
-            if (e.key === 'ArrowLeft') {
-                currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-                updateLightboxImage();
-            } else if (e.key === 'ArrowRight') {
-                currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
-                updateLightboxImage();
-            }
-        }
-    });
-
-    function updateLightboxImage() {
-        const img = galleryImages[currentImageIndex];
-        lightboxImg.src = img.src;
-        captionText.textContent = img.alt;
-        
-        // Add zoom-in animation
-        lightboxImg.style.animation = 'none';
-        void lightboxImg.offsetWidth; // Trigger reflow
-        lightboxImg.style.animation = 'zoomIn 0.3s';
-    }
+    lightbox.appendChild(prevBtn);
+    lightbox.appendChild(nextBtn);
 
     // Auto-sliding carousel
     const myCarousel = new bootstrap.Carousel('#carouselExampleCaptions', {
