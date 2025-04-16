@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+    background: linear-gradient(to bottom, #f8f8f8e5, #e0e0e0c7);
 }
 
 .section-padding {
@@ -80,7 +80,7 @@ h1 {
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 1;
 }
 
@@ -198,6 +198,7 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-left: 30px;
 }
+
 
 @media (max-width: 768px) {
     .about-img {
@@ -402,17 +403,6 @@ h1 {
     margin-right: 5px;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeOut {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(20px); }
-}
-
 .fade-in-up {
     animation: fadeInUp 0.6s ease forwards;
 }
@@ -421,12 +411,7 @@ h1 {
     animation: fadeOut 0.6s ease forwards;
 }
 
-/* Section animations */
-.section-hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s cubic-bezier(0.5, 0, 0, 1);
-}
+
 
 /* Form states */
 .form-loading .gallery-button {
@@ -612,4 +597,329 @@ h1 {
         margin: 0.8rem auto; /* Reduced margin */
         width: 60%;
     }
+}
+
+
+
+
+/* Enhanced hover for gallery images */
+.grid-item img {
+    transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+}
+
+.grid-item img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.05);
+}
+
+/* Hover effect for about section images */
+.about-img img:hover {
+    transform: scale(1.03) rotate(1deg); /* Slight rotation */
+}
+
+.gallery-button {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+/* Add to your existing form styles */
+.form-loading .gallery-button {
+    position: relative;
+    color: transparent;
+}
+
+.form-loading .gallery-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #FFD700;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.logo-img {
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Lightbox Styles */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  text-align: center;
+}
+
+.lightbox-content {
+  max-height: 80vh;
+  max-width: 90vw;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: zoomIn 0.3s;
+}
+
+@keyframes zoomIn {
+  from { transform: translate(-50%, -50%) scale(0.8); }
+  to { transform: translate(-50%, -50%) scale(1); }
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #FFD700;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 28px;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.prev:hover, .next:hover {
+  color: #FFD700;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.caption {
+  color: #fff;
+  padding: 10px;
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+
+/* Carousel Control Arrows (Previous/Next) */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px; /* Larger click area */
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0); /* Semi-transparent black background */
+  border-radius: 50%; /* Circular shape */
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1 !important; /* Force visible (overrides Bootstrap's hover effect) */
+  transition: all 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: #7e6b02; /* Darker on hover */
+}
+
+/* Arrow Icons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 2rem; /* Larger arrow size */
+  height: 2rem;
+  filter: brightness(0) invert(1); /* Ensure white color */
+}
+
+/* Carousel Indicators (Bottom Dots) */
+.carousel-indicators {
+    bottom: 20px; /* Adjust position if needed */
+  }
+  
+  .carousel-indicators [data-bs-target] {
+    width: 12px !important; /* Larger dots */
+    height: 12px !important;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+    border: none;
+    margin: 0 5px;
+  }
+  
+  .carousel-indicators .active {
+    background-color: #FFD700 !important; /* Gold color for active dot */
+    transform: scale(1.2); /* Slightly enlarge active dot */
+  }
+
+  /* Page Load Animations */
+body {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.navbar {
+    transform: translateY(-100%);
+    animation: slideDown 0.8s ease-out 0.3s forwards;
+}
+
+.carousel {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+#about {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out 0.9s forwards;
+}
+
+#portfolio {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out 1.2s forwards;
+}
+
+#contact {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out 1.5s forwards;
+}
+
+footer {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 1.8s forwards;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    body, .navbar, .carousel, #about, #portfolio, #contact, footer {
+        animation: none !important;
+        opacity: 1;
+        transform: none !important;
+    }
+}
+
+/* ===== SMOOTH LOAD ANIMATIONS ===== */
+/* Add to style.css */
+body {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  .navbar {
+    animation: slideDown 0.6s ease-out 0.3s forwards;
+    transform: translateY(-20px);
+  }
+  @keyframes fadeIn { to { opacity: 1; } }
+  @keyframes slideDown { to { transform: translateY(0); } }
+
+  /* Form Validation Styles */
+.invalid-feedback {
+    display: block;
+    color: #dc3545;
+    font-size: 0.875em;
+    margin-top: 0.25rem;
+}
+
+.is-invalid {
+    border-color: #dc3545 !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+}
+
+/* Success Message Animation */
+.alert-success {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.alert-success.show {
+    opacity: 1;
+}
+
+/* Error Message Styles */
+.alert-danger {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    margin-top: 1rem;
+}
+
+/* Loading State */
+.spinner-border {
+    vertical-align: middle;
+}
+
+/* Form Group Spacing */
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
 }
