@@ -4,7 +4,7 @@
 
 The official website for Sultan Stamp, a creative design and printing company based in Dublin, Ireland. This site is actively deployed and serving customers at [sultanstamp.com](https://www.sultanstamp.com).
 
-## 🚀 Live Deployment
+## Live Deployment
 - **URL**: [https://www.sultanstamp.com](https://www.sultanstamp.com)
 - **Status**: Actively maintained and serving production traffic
 - **Hosting**: AWS (Amazon Web Services)
