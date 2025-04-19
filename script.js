@@ -1,18 +1,22 @@
-// FIRST LINE in script.js
+// Add 'loaded' class to HTML element when script loads
 document.documentElement.classList.add('loaded');
 
+// Wait for DOM to be fully loaded before executing
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu handling
+    // ========== MOBILE MENU HANDLING ==========
+    // Handles mobile menu toggle and navigation link behavior
     const navbarToggler = document.querySelector('.navbar-toggler');
     const navbarCollapse = document.querySelector('.navbar-collapse');
     const navLinks = document.querySelectorAll('.nav-link');
     
     navLinks.forEach(navLink => {
         navLink.addEventListener('click', function(e) {
+            // Close mobile menu if open when a link is clicked
             if (navbarCollapse.classList.contains('show')) {
                 navbarToggler.click();
             }
             
+            // Special handling for home link to smoothly scroll to top
             if (this.getAttribute('href') === '#home') {
                 e.preventDefault();
                 window.scrollTo({
@@ -23,7 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Smooth scrolling with offset for navbar
+    // ========== SMOOTH SCROLLING ==========
+    // Adds smooth scrolling to all anchor links (except home) with navbar offset
     document.querySelectorAll('a[href^="#"]:not([href="#home"])').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -37,7 +42,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Enhanced Form submission with Formspree
+    // ========== CONTACT FORM HANDLING ==========
+    // Handles form submission with validation, loading states, and success/error messages
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', async function(e) {
@@ -52,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const submitButton = form.querySelector('button[type="submit"]');
             const successMessage = document.getElementById('successMessage');
             
-            // Show loading state
+            // Show loading state on submit button
             submitButton.disabled = true;
             submitButton.innerHTML = `
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -60,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             
             try {
+                // Send form data to server
                 const response = await fetch(form.action, {
                     method: 'POST',
                     body: new FormData(form),
@@ -68,19 +75,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
                 
+                // Handle successful submission
                 if (response.ok) {
-                    // Show success message
                     successMessage.style.display = 'block';
                     successMessage.classList.add('show');
                     form.reset();
                     
-                    // Smoothly scroll to message (without jumping to top)
+                    // Scroll to success message
                     successMessage.scrollIntoView({
                         behavior: 'smooth',
                         block: 'nearest'
                     });
                     
-                    // Hide after 5 seconds with fade out
+                    // Hide success message after delay
                     setTimeout(() => {
                         successMessage.classList.remove('show');
                         setTimeout(() => {
@@ -94,20 +101,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 showError('There was a problem sending your message. Please try again later.');
                 console.error('Error:', error);
             } finally {
+                // Reset submit button state
                 submitButton.disabled = false;
                 submitButton.innerHTML = 'Send Message';
             }
         });
         
-        // Add real-time validation
+        // Add real-time validation to form fields
         addFormValidation(contactForm);
     }
 
-    // Form validation functions
+    // ========== FORM VALIDATION FUNCTIONS ==========
+    // Contains helper functions for form validation and error display
     function validateForm(form) {
         let isValid = true;
         const inputs = form.querySelectorAll('input, textarea');
         
+        // Validate each input field
         inputs.forEach(input => {
             if (!validateInput(input)) {
                 isValid = false;
@@ -125,13 +135,13 @@ document.addEventListener('DOMContentLoaded', function() {
         errorElement.textContent = '';
         input.classList.remove('is-invalid');
         
-        // Required field validation
+        // Check required fields
         if (input.required && !value) {
             showFieldError(input, errorElement, 'This field is required');
             return false;
         }
         
-        // Email validation
+        // Validate email format
         if (input.type === 'email' && value) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(value)) {
@@ -140,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // Minimum length validation
+        // Check minimum length
         if (input.minLength && value.length < input.minLength) {
             showFieldError(input, errorElement, `Minimum ${input.minLength} characters required`);
             return false;
@@ -150,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function createErrorElement(input) {
+        // Create error message element
         const errorElement = document.createElement('div');
         errorElement.id = `${input.name}-error`;
         errorElement.className = 'invalid-feedback';
@@ -158,11 +169,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function showFieldError(input, errorElement, message) {
+        // Display field-specific error message
         errorElement.textContent = message;
         input.classList.add('is-invalid');
     }
     
     function showError(message) {
+        // Show general error message
         const errorDiv = document.createElement('div');
         errorDiv.className = 'alert alert-danger mt-3';
         errorDiv.innerHTML = `
@@ -173,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('contactForm');
         form.parentNode.insertBefore(errorDiv, form.nextSibling);
         
-        // Auto-remove after 5 seconds
+        // Auto-remove error message
         setTimeout(() => {
             errorDiv.style.opacity = '0';
             setTimeout(() => {
@@ -183,15 +196,16 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function addFormValidation(form) {
+        // Add validation events to form inputs
         const inputs = form.querySelectorAll('input, textarea');
         
         inputs.forEach(input => {
-            // Validate on blur
+            // Validate when leaving field
             input.addEventListener('blur', () => {
                 validateInput(input);
             });
             
-            // Clear error when typing
+            // Clear errors when typing
             input.addEventListener('input', () => {
                 const errorElement = document.getElementById(`${input.name}-error`);
                 if (errorElement) {
@@ -202,7 +216,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add scroll event for navbar
+    // ========== SCROLL EVENT ==========
+    // Adds/removes 'scrolled' class to navbar based on scroll position
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             document.querySelector('.navbar').classList.add('scrolled');
@@ -211,10 +226,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Update copyright year automatically
+    // ========== COPYRIGHT YEAR UPDATE ==========
+    // Updates copyright year automatically
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
-    // Newsletter form handling
+    // ========== NEWSLETTER FORM ==========
+    // Handles newsletter subscription with basic validation
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
@@ -224,21 +241,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const button = this.querySelector('button');
             
             if (email) {
-                // Basic email validation
+                // Validate email format
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {
                     alert('Please enter a valid email address');
                     return;
                 }
                 
-                // Here you would typically send to your email service
+                // Simulate subscription (would be API call in production)
                 console.log('Subscribed email:', email);
                 
-                // Show visual feedback
+                // Visual feedback
                 button.innerHTML = '<i class="fas fa-check"></i>';
                 button.style.backgroundColor = '#4CAF50';
                 
-                // Reset after 2 seconds
+                // Reset form after delay
                 setTimeout(() => {
                     button.innerHTML = '<i class="fas fa-paper-plane"></i>';
                     button.style.backgroundColor = '';
@@ -248,7 +265,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Enhanced Lightbox with Swipe Functionality
+    // ========== LIGHTBOX GALLERY ==========
+    // Creates an interactive image lightbox with swipe and keyboard navigation
     let currentImageIndex = 0;
     let touchStartX = 0;
     let isSwiping = false;
@@ -262,10 +280,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Lightbox navigation functions
     function showImage(index) {
+        // Handle circular navigation (wraps around)
         if (index >= galleryImages.length) index = 0;
         if (index < 0) index = galleryImages.length - 1;
         currentImageIndex = index;
         
+        // Update lightbox content
         lightboxImg.src = galleryImages[currentImageIndex].src;
         captionText.textContent = galleryImages[currentImageIndex].alt;
         
@@ -283,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
         showImage(currentImageIndex - 1);
     }
 
-    // Event listeners for gallery images
+    // Open lightbox when gallery image clicked
     galleryImages.forEach((img, index) => {
         img.addEventListener('click', () => {
             currentImageIndex = index;
@@ -293,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Touch events for swipe
+    // Touch events for swipe navigation
     lightbox.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
         isSwiping = true;
@@ -315,6 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const touchEndX = e.changedTouches[0].clientX;
         const diff = touchEndX - touchStartX;
         
+        // Navigate if swipe exceeds threshold
         if (Math.abs(diff) > swipeThreshold) {
             if (diff > 0) prevImage();
             else nextImage();
@@ -322,15 +343,15 @@ document.addEventListener('DOMContentLoaded', function() {
         lightboxImg.style.transform = 'translate(-50%, -50%)';
     }, { passive: true });
 
-    // Close and keyboard controls
+    // Close lightbox when clicking background or pressing Escape
     lightbox.addEventListener('click', function(e) {
-        // Check if click is directly on the lightbox background (not on image or buttons)
         if (e.target === lightbox) {
             lightbox.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     });
 
+    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (lightbox.style.display !== 'block') return;
         
@@ -344,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Navigation arrows
+    // Create navigation arrows
     const prevBtn = document.createElement('div');
     prevBtn.className = 'prev';
     prevBtn.innerHTML = '❮';
@@ -364,7 +385,8 @@ document.addEventListener('DOMContentLoaded', function() {
     lightbox.appendChild(prevBtn);
     lightbox.appendChild(nextBtn);
 
-    // Auto-sliding carousel
+    // ========== CAROUSEL INITIALIZATION ==========
+    // Initializes Bootstrap carousel with custom settings
     const myCarousel = new bootstrap.Carousel('#carouselExampleCaptions', {
         interval: 5000,
         ride: 'carousel',
