@@ -1,3 +1,22 @@
+// Section Explanations:
+// Mobile Menu Handling: Manages the responsive navbar behavior, automatically closing the mobile menu when a link is clicked and handling smooth scrolling to the top for the home link.
+
+// Smooth Scrolling: Implements smooth scrolling for anchor links with proper offset to account for the fixed navbar height.
+
+// Contact Form Handling: Provides comprehensive form submission handling with validation, loading states, success messages, and error handling using Formspree.
+
+// Form Validation Functions: Contains helper functions that validate form inputs in real-time and display appropriate error messages for required fields, email formats, and minimum lengths.
+
+// Scroll Event: Adds a visual effect to the navbar when scrolling down the page by toggling a 'scrolled' class.
+
+// Copyright Year Update: Automatically updates the copyright year in the footer to the current year.
+
+// Newsletter Form: Handles newsletter subscriptions with basic email validation and provides visual feedback upon submission.
+
+// Lightbox Gallery: Creates an interactive image gallery lightbox with swipe gestures (for touch devices), keyboard navigation, and smooth transitions between images.
+
+// Carousel Initialization: Initializes a Bootstrap carousel component with auto-rotation and hover-pause functionality.
+
 // Add 'loaded' class to HTML element when script loads
 document.documentElement.classList.add('loaded');
 
